@@ -1,69 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover Vibe Coding - A new paradigm of development flow and creativity.">
-    <title>Vibe Coding | Code in the Zone</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Todo App</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="blob-bg"></div>
-    <nav class="navbar">
-        <div class="logo">Vibe<span class="highlight">Coding</span></div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#get-started" class="btn-primary">Get Started</a></li>
-        </ul>
-    </nav>
+  <div id="app" class="container">
+    <!-- 인증 화면 -->
+    <div id="auth-section" class="card">
+      <h2 id="auth-title">로그인</h2>
+      <form id="auth-form">
+        <input type="email" id="email" placeholder="이메일" required>
+        <input type="password" id="password" placeholder="비밀번호" required>
+        <button type="submit" id="auth-btn">로그인</button>
+      </form>
+      <p id="auth-toggle">계정이 없으신가요? <span id="toggle-btn">회원가입</span></p>
+    </div>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1 class="glitch-text" data-text="Code with the Flow">Code with the <span class="gradient-text">Flow</span></h1>
-            <p>Experience a new way of building software where intuition meets artificial intelligence. Less typing, more creating. Just pure vibe.</p>
-            <button class="btn-large">Start Vibing</button>
-        </div>
-        <div class="hero-visual">
-            <div class="glass-card floating-card">
-                <div class="code-line"></div>
-                <div class="code-line short"></div>
-                <div class="code-line"></div>
-                <div class="code-line medium"></div>
-            </div>
-            <div class="glass-card floating-card delay-1">
-                <div class="circle"></div>
-                <div class="line"></div>
-            </div>
-        </div>
-    </header>
+    <!-- 할 일 관리 화면 (로그인 후 표시) -->
+    <div id="todo-section" class="card hidden">
+      <div class="header">
+        <h2>내 할 일</h2>
+        <button id="logout-btn" class="logout">로그아웃</button>
+      </div>
+      <form id="todo-form">
+        <input type="text" id="todo-input" placeholder="새로운 할 일을 입력하세요..." required>
+        <button type="submit">추가</button>
+      </form>
+      <ul id="todo-list"></ul>
+    </div>
+  </div>
 
-    <section id="features" class="features-section">
-        <h2 class="section-title">Why Vibe Coding?</h2>
-        <div class="grid">
-            <div class="feature-card">
-                <div class="icon">✨</div>
-                <h3>Intuitive Design</h3>
-                <p>We blend AI with natural language to make coding feel like a conversation.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon">⚡</div>
-                <h3>Lightning Fast</h3>
-                <p>Generate boilerplate, scaffold projects, and write complex algorithms in seconds.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon">🎨</div>
-                <h3>Creative Freedom</h3>
-                <p>Focus on the 'what' and 'why' of your product, while we handle the 'how'.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Vibe Coding Platform. Crafted with style.</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <!-- Firebase SDK 로드 -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
